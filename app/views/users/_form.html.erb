@@ -1,26 +1,40 @@
 <%= form_with model: user do |form| %>
-  <div>
-    <%= form.label :first_name %><br>
-    <%= form.text_field :first_name %>
-    <% user.errors.full_messages_for(:first_name).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
+  <!-- <label class="block">
+    <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
+      Email
+    </span>
+    <input type="email" name="email"
+      class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+      placeholder="you@example.com" />
+  </label> -->
+
+  <div class="form-control">
+    <%= form.label :first_name , :class=> 'label' %>
+      <%= form.text_field :first_name , :class => 'text-input' , :placeholder => 'Enter you first name' %>
+        <% user.errors.full_messages_for(:first_name).each do |message| %>
+          <div>
+            <%= message %>
+          </div>
+          <% end %>
   </div>
 
-  <div>
-    <%= form.label :last_name %><br>
-    <%= form.text_area :last_name %><br>
-    <% user.errors.full_messages_for(:last_name).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
+  <div class="form-control">
+    <%= form.label :last_name , :class=> 'label' %>
+      <%= form.text_field :last_name , :class => 'text-input' , :placeholder => 'Enter you first name' %><br>
+        <% user.errors.full_messages_for(:last_name).each do |message| %>
+          <div>
+            <%= message %>
+          </div>
+          <% end %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="buttons-wrapper">
+    <%= form.submit 'Submit' , :class=> 'button-success' %>
+      <%= link_to "Back to users" , users_path , class: "button-primary" %>
   </div>
-<% end %>
+  <% end %>
 
-  <%# create_table "users", force: :cascade do |t|
+    <!-- <%# create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.date "birth_date"
@@ -31,4 +45,4 @@
     t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end %>
+  end %> -->
