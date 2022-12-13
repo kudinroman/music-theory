@@ -1,0 +1,15 @@
+@import "../variables/colors.css";
+
+@layer base {
+  h1 {
+    @apply text-2xl text-slate-800 mb-3;
+  }
+
+  h2 {
+    @apply text-xl text-slate-800 mb-3;
+  }
+
+  h3 {
+    @apply text-lg text-slate-800 mb-3;
+  }
+}

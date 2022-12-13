@@ -1,0 +1,37 @@
+@import "../variables/colors.css";
+
+@layer components {
+  .button {
+    @apply text-white rounded-md px-4 py-2 m-2 transition duration-500 ease-in-out 
+            select-none focus:outline-none focus:shadow-md
+            mt-0 mb-0 ml-0 mr-2 leading-4 inline-block cursor-pointer;
+  }
+
+  .button-primary {
+    @apply inline-block px-6 py-2.5 !bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out;
+  }
+
+  .button-success {
+    @apply inline-block px-6 py-2.5 !bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out;
+  }
+
+  .button-error {
+    @apply border border-red-500 bg-red-500 hover:bg-red-600;
+  }
+
+  .button-warning {
+    @apply border border-yellow-500 bg-yellow-500 hover:bg-yellow-600;
+  }
+
+  .button-info {
+    @apply border border-teal-500 bg-teal-500 hover:bg-teal-600;
+  }
+
+  .button-dark {
+    @apply border border-gray-700 bg-gray-700 hover:bg-gray-800;
+  }
+
+  .button-light {
+    @apply border border-gray-200 bg-gray-200 text-gray-700 hover:bg-gray-300;
+  }
+}

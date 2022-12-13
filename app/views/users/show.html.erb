@@ -26,6 +26,12 @@
     </ul>
 
     <div class="buttons-wrapper">
-        <%= link_to "Back to users" , users_path , class: "button-primary %>
+        <%= link_to "Back to users" , users_path , class: "button button-primary" %>
+        <%= link_to "Edit", edit_user_path(@user) , class: "button button-success" %>
+
+        <%= link_to "Destroy", user_path(@user), data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+          } , class: "button button-error" %>
     </div>
 </div>
