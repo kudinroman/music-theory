@@ -1,4 +1,4 @@
-@import "variables/colors.css";
+@import "./variables/colors.css";
 
 @import "tailwindcss/base";
 @import "./base/index.css";

@@ -1,16 +1,7 @@
 <%= form_with model: user do |form| %>
-  <!-- <label class="block">
-    <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
-      Email
-    </span>
-    <input type="email" name="email"
-      class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
-      placeholder="you@example.com" />
-  </label> -->
-
   <div class="f-control">
     <%= form.label :first_name , :class=> 'label' %>
-      <%= form.text_field :first_name , :class => 'text-input' , :placeholder => 'Enter you first name' %>
+      <%= form.text_field :first_name , :class => 'text-input' , :placeholder => 'Enter first name' %>
         <% user.errors.full_messages_for(:first_name).each do |message| %>
           <span class="error-message">
             <%= message %>
@@ -20,7 +11,7 @@
 
   <div class="f-control">
     <%= form.label :last_name , :class=> 'label' %>
-      <%= form.text_field :last_name , :class => 'text-input' , :placeholder => 'Enter you last name' %>
+      <%= form.text_field :last_name , :class => 'text-input' , :placeholder => 'Enter last name' %>
         <% user.errors.full_messages_for(:last_name).each do |message| %>
           <span class="error-message">
             <%= message %>
@@ -30,7 +21,7 @@
 
   <div class="f-control">
     <%= form.label :birth_date , :class=> 'label' %>
-      <%= form.date_field :birth_date , value: Date.today.next_year(-10).strftime('%Y-%m-%d') %>
+    <%= form.date_field :birth_date , value: @user.birth_date || Date.today.next_year(-10).strftime('%Y-%m-%d') %>
         <% user.errors.full_messages_for(:birth_date).each do |message| %>
           <span class="error-message">
             <%= message %>
@@ -38,23 +29,18 @@
           <% end %>
   </div>
 
+  <div class="f-control">
+    <%= label_tag(:role, "Role", class: 'label') %>
+    <%= form.select :role, [["Super Admin", "super_admin"], ["Admin", "admin"], ["User", "user"], ["Guest", "guest"]], { selected: @user.role }, { :class => 'f-select' } %>
+  </div>
+
+  <div class="f-control">
+    <%= label_tag(:is_active, "Active", class: 'label') %>
+    <%= form.check_box(:is_active, { :class => 'f-checkbox' }, 1, 0) %>
+  </div>
+  
   <div class="buttons-wrapper">
     <%= form.submit 'Submit' , :class=> 'button button-success' %>
     <%= link_to "Back to users" , users_path , class: "button button-primary" %>
   </div>
 <% end %>
-
-<!-- , value: Date.today.next_year(-10).strftime('%Y-%m-%d') -->
-
-    <!-- <%# create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.date "birth_date"
-    t.string "email"
-    t.boolean "is_active"
-    t.datetime "last_login"
-    t.string "password"
-    t.string "role"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end %> -->

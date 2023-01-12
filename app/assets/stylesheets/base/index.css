@@ -1,5 +1,3 @@
-@import "../variables/colors.css";
-
 @layer base {
   h1 {
     @apply text-2xl text-slate-800 mb-3;

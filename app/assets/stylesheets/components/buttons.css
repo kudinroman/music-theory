@@ -1,5 +1,3 @@
-@import "../variables/colors.css";
-
 @layer components {
   .button {
     @apply text-white rounded-md px-4 py-2 m-2 transition duration-500 ease-in-out 
